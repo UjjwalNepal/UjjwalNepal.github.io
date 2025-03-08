@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface AdminLoginProps {
   onLoginSuccess: () => void;
@@ -22,27 +23,56 @@ const AdminLogin = ({ onLoginSuccess }: AdminLoginProps) => {
     setIsLoading(true);
     
     try {
-      // This is a placeholder for Supabase authentication
-      // Replace with actual Supabase auth once integrated
-      if (email === "admin@example.com" && password === "password") {
-        localStorage.setItem("admin_token", "dummy-token");
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      
+      if (error) {
+        throw error;
+      }
+      
+      if (data.session) {
         toast({
           title: "Login successful",
           description: "You have been logged in successfully",
-          variant: "default",
         });
         onLoginSuccess();
-      } else {
-        toast({
-          title: "Login failed",
-          description: "Invalid email or password",
-          variant: "destructive",
-        });
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Login error:", error);
       toast({
-        title: "Error",
-        description: "An error occurred during login",
+        title: "Login failed",
+        description: error.message || "Invalid email or password",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSignUp = async () => {
+    setIsLoading(true);
+    
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+      
+      if (error) {
+        throw error;
+      }
+      
+      toast({
+        title: "Sign up successful",
+        description: "Please check your email for verification link",
+      });
+    } catch (error: any) {
+      console.error("Sign up error:", error);
+      toast({
+        title: "Sign up failed",
+        description: error.message || "Could not create account",
         variant: "destructive",
       });
     } finally {
@@ -106,14 +136,28 @@ const AdminLogin = ({ onLoginSuccess }: AdminLoginProps) => {
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Signing in..." : "Sign in"}
               </Button>
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground">
+                  Don't have an account?{" "}
+                  <button
+                    type="button"
+                    className="text-primary hover:underline"
+                    onClick={handleSignUp}
+                    disabled={isLoading}
+                  >
+                    Sign up
+                  </button>
+                </p>
+              </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex flex-col space-y-2">
-          <div className="text-sm text-muted-foreground text-center">
-            <p>Default login:</p>
-            <p>Email: admin@example.com</p>
-            <p>Password: password</p>
+          <div className="text-xs text-muted-foreground text-center">
+            <p>
+              Note: For this demo, you'll need to create an account using your email.
+              Check your email to verify your account before logging in.
+            </p>
           </div>
         </CardFooter>
       </Card>

@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,11 +7,53 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { BarChart, PieChart, Users, FileText, Image, Server, Settings, Layout, Database } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { fetchContent, ContentItem } from "@/services/contentService";
+import ContentEditForm from "./ContentEditForm";
+import SkillsManager from "./SkillsManager";
+import ProjectsManager from "./ProjectsManager";
+import ExperienceManager from "./ExperienceManager";
 
 const AdminDashboard = () => {
+  const [activeTab, setActiveTab] = useState("overview");
+  const [contentItems, setContentItems] = useState<ContentItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    loadContent();
+  }, []);
+
+  const loadContent = async () => {
+    try {
+      const data = await fetchContent();
+      setContentItems(data);
+    } catch (error) {
+      console.error("Error loading content:", error);
+      toast({
+        title: "Error",
+        description: "Failed to load content data",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleContentUpdate = (updatedContent: ContentItem) => {
+    setContentItems(contentItems.map(item => 
+      item.id === updatedContent.id ? updatedContent : item
+    ));
+  };
+
   return (
     <div className="space-y-8">
-      <Tabs defaultValue="overview" className="w-full">
+      <Tabs 
+        defaultValue="overview" 
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="w-full"
+      >
         <TabsList className="w-full max-w-md mx-auto grid grid-cols-4 h-auto mb-8">
           <TabsTrigger value="overview" className="py-2">Overview</TabsTrigger>
           <TabsTrigger value="content" className="py-2">Content</TabsTrigger>
@@ -73,23 +115,55 @@ const AdminDashboard = () => {
         </TabsContent>
         
         <TabsContent value="content" className="space-y-6">
-          <Card className="glass-card">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5" />
-                <span>Content Management</span>
-              </CardTitle>
-              <CardDescription>Manage your website content from here</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <ContentSection title="About Me" description="Update your personal information" />
-                <ContentSection title="Skills" description="Update your technical skills" />
-                <ContentSection title="Experience" description="Update your work experience" />
-                <ContentSection title="Projects" description="Update your portfolio projects" />
-              </div>
-            </CardContent>
-          </Card>
+          <Tabs defaultValue="general" className="w-full">
+            <TabsList className="mb-6">
+              <TabsTrigger value="general">General</TabsTrigger>
+              <TabsTrigger value="skills">Skills</TabsTrigger>
+              <TabsTrigger value="projects">Projects</TabsTrigger>
+              <TabsTrigger value="experience">Experience</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="general" className="space-y-6">
+              <Card className="glass-card">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileText className="h-5 w-5" />
+                    <span>General Content</span>
+                  </CardTitle>
+                  <CardDescription>
+                    Update the main content sections of your website
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {loading ? (
+                    <div className="text-center py-8">Loading content...</div>
+                  ) : (
+                    <div className="space-y-8">
+                      {contentItems.map((content) => (
+                        <ContentEditForm 
+                          key={content.id} 
+                          content={content}
+                          onUpdate={handleContentUpdate}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="skills">
+              <SkillsManager />
+            </TabsContent>
+            
+            <TabsContent value="projects">
+              <ProjectsManager />
+            </TabsContent>
+            
+            <TabsContent value="experience">
+              <ExperienceManager />
+            </TabsContent>
+          </Tabs>
         </TabsContent>
         
         <TabsContent value="media" className="space-y-6">
@@ -184,17 +258,6 @@ const StatsCard = ({
       <p className="text-xs text-muted-foreground mt-1">{description}</p>
     </CardContent>
   </Card>
-);
-
-// Helper component for content sections
-const ContentSection = ({ title, description }: { title: string; description: string }) => (
-  <div className="flex items-center justify-between p-3 border border-border rounded-md hover:bg-secondary/20 transition-colors">
-    <div>
-      <h3 className="font-medium">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
-    <Button variant="outline" size="sm">Edit</Button>
-  </div>
 );
 
 export default AdminDashboard;

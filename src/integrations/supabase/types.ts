@@ -9,7 +9,123 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      content: {
+        Row: {
+          content: string | null
+          description: string | null
+          id: string
+          section: string
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          content?: string | null
+          description?: string | null
+          id?: string
+          section: string
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          content?: string | null
+          description?: string | null
+          id?: string
+          section?: string
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      experience: {
+        Row: {
+          company: string
+          description: string | null
+          id: string
+          order_index: number | null
+          period: string
+          technologies: string[] | null
+          title: string
+        }
+        Insert: {
+          company: string
+          description?: string | null
+          id?: string
+          order_index?: number | null
+          period: string
+          technologies?: string[] | null
+          title: string
+        }
+        Update: {
+          company?: string
+          description?: string | null
+          id?: string
+          order_index?: number | null
+          period?: string
+          technologies?: string[] | null
+          title?: string
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          description: string | null
+          github_url: string | null
+          id: string
+          image_url: string | null
+          order_index: number | null
+          project_url: string | null
+          technologies: string[] | null
+          title: string
+        }
+        Insert: {
+          description?: string | null
+          github_url?: string | null
+          id?: string
+          image_url?: string | null
+          order_index?: number | null
+          project_url?: string | null
+          technologies?: string[] | null
+          title: string
+        }
+        Update: {
+          description?: string | null
+          github_url?: string | null
+          id?: string
+          image_url?: string | null
+          order_index?: number | null
+          project_url?: string | null
+          technologies?: string[] | null
+          title?: string
+        }
+        Relationships: []
+      }
+      skills: {
+        Row: {
+          category: string | null
+          description: string | null
+          icon: string | null
+          id: string
+          name: string
+          order_index: number | null
+        }
+        Insert: {
+          category?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          order_index?: number | null
+        }
+        Update: {
+          category?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          order_index?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
