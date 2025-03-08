@@ -8,6 +8,7 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const RevealAnimations = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const RevealAnimations = () => {
 const Index = () => {
   return (
     <main className="bg-background text-foreground">
+      <SEOHead />
       <RevealAnimations />
       <Navbar />
       <Hero />
