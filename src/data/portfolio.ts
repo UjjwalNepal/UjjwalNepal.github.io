@@ -1,11 +1,12 @@
 export const profile = {
   name: "Ujjwal Raj Nepal",
-  role: "Full-stack engineer & product builder",
+  role: "Product leader & hands-on technologist",
   email: "nepalujjwal95@gmail.com",
   github: "https://github.com/ujjwalnepal",
   linkedin: "https://np.linkedin.com/in/ujjwal-raj-nepal-6526a2b0",
-  introduction: "I build things for the web, for your pocket, and sometimes for the world around you. A full-stack engineer in Nepal, working where thoughtful software meets a little imagination.",
-  biography: "My work brings together full-stack engineering, native mobile development, augmented reality, and product leadership. I've been building software since 2016 — from systems that connect supply chains to stories that come alive in your living room.",
+  introduction: "I connect product vision, people, and engineering to turn an idea into something useful. A product leader and hands-on technologist in Nepal, with an entrepreneurial streak and a soft spot for ambitious problems.",
+  biography: "I've been building software since 2016, moving between technical leadership, product direction, and hands-on engineering. From serving as CTO at Farspeak to leading HowApp from concept to delivery, I care about the whole journey: the problem, the people, the product, and the systems that keep it running.",
+  resumeSummary: "Product leader and hands-on technologist building software since 2016. Experience spans CTO responsibilities, cross-functional team leadership, product delivery, and full-stack engineering. Brings an entrepreneurial approach to translating business needs into focused products, with work across AI developer tools, enterprise operations, mobile, and augmented reality.",
 };
 
 // Based on the résumé details in the existing About, Experience, and Skills sections.
@@ -17,15 +18,16 @@ interface Experience {
   year?: string;
   period?: string;
   description: string;
+  bullets: readonly string[];
 }
 
 export const experience: readonly Experience[] = [
-  { company: "Farspeak", role: "Chief Technology Officer (CTO)", period: "Before WhosLive", description: "Served as CTO at Farspeak, an AI developer toolkit for working with structured data and documents through natural-language queries." },
-  { company: "Fresh KTM", role: "Lead Technical Consultant", since: "Apr 2022", year: "2022", description: "Led development of an agritech ERP, connecting supply chain operations, point of sale, accounting, and billing. Designed scalable systems and CI/CD pipelines." },
-  { company: "Stealth AI Startup", role: "Lead Full-stack Developer", since: "Oct 2021", year: "2021", description: "Built Spelly, an iOS AR storytelling app, with ARKit and RealityKit. Integrated CoreML and language models, supported by a scalable NoSQL backend on AWS." },
-  { company: "HowApp: Play at Home", role: "Full-stack Developer / Project Manager", since: "Apr 2019", year: "2019", description: "Took a parenting app from concept to delivery, leading developers and designers and shaping a product centered on community and practical activities." },
-  { company: "Otonomis", role: "ML Engineer / Full-stack Developer", since: "May 2017", year: "2017", description: "Developed a vehicle fleet tracking platform, a scalable tracking server, and native iOS and Android apps for real-time location and reporting." },
-  { company: "Computer Science Research and Development Center", role: "Engineer", since: "Apr 2016", year: "2016", description: "Researched and developed cross-platform mobile applications, with an emphasis on adaptive interfaces and a consistent experience across iOS and Android." },
+  { company: "Farspeak", role: "Chief Technology Officer (CTO)", period: "Before WhosLive", description: "Served as CTO at Farspeak, an AI developer toolkit for working with structured data and documents through natural-language queries.", bullets: ["Served as CTO of an AI developer platform for querying structured records and documents in natural language."] },
+  { company: "Fresh KTM", role: "Lead Technical Consultant", since: "Apr 2022", year: "2022", description: "Led development of an agritech ERP, connecting supply chain operations, point of sale, accounting, and billing. Designed scalable systems and CI/CD pipelines.", bullets: ["Architected and led development of an agritech ERP connecting supply chain, point of sale, accounting, and billing workflows.", "Established scalable system architecture, CI/CD pipelines, and DevOps practices to support product delivery."] },
+  { company: "Stealth AI Startup", role: "Lead Full-stack Developer", since: "Oct 2021", year: "2021", description: "Built Spelly, an iOS AR storytelling app, with ARKit and RealityKit. Integrated CoreML and language models, supported by a scalable NoSQL backend on AWS.", bullets: ["Led development of Spelly, a native iOS storytelling app combining Swift, ARKit, RealityKit, CoreML, and language models.", "Engineered a scalable NoSQL backend and serverless infrastructure on AWS to support the application."] },
+  { company: "HowApp: Play at Home", role: "Full-stack Developer / Project Manager", since: "Apr 2019", year: "2019", description: "Took a parenting app from concept to delivery, leading developers and designers and shaping a product centered on community and practical activities.", bullets: ["Led developers and designers from concept to delivery of a parenting platform, combining product direction with hands-on development.", "Shaped and built community features and practical activities around the needs of parents."] },
+  { company: "Otonomis", role: "ML Engineer / Full-stack Developer", since: "May 2017", year: "2017", description: "Developed a vehicle fleet tracking platform, a scalable tracking server, and native iOS and Android apps for real-time location and reporting.", bullets: ["Built a fleet management platform with a scalable tracking server, real-time location data, and reporting.", "Developed native iOS and Android applications connecting fleet operations with mobile users."] },
+  { company: "Computer Science Research and Development Center", role: "Engineer", since: "Apr 2016", year: "2016", description: "Researched and developed cross-platform mobile applications, with an emphasis on adaptive interfaces and a consistent experience across iOS and Android.", bullets: ["Researched and developed cross-platform mobile applications with adaptive interfaces and consistent iOS and Android experiences."] },
 ];
 
 export interface Project {
@@ -98,11 +100,12 @@ export const projects: readonly Project[] = [
 ] as const;
 
 export const skillGroups = [
-  { number: "01", name: "Interfaces & mobile", tools: ["React", "Vue", "Swift", "React Native", "Flutter", "Native iOS & Android"] },
-  { number: "02", name: "Backends & systems", tools: ["Node.js", "NestJS", "Express", "MongoDB", "NoSQL", "REST APIs", "System design"] },
-  { number: "03", name: "Beyond the screen", tools: ["ARKit", "RealityKit", "CoreML", "LLMs", "Machine learning", "IoT"] },
-  { number: "04", name: "Cloud & delivery", tools: ["AWS", "Google Cloud", "AWS Lambda", "CloudFront", "CI/CD", "DevOps"] },
-  { number: "05", name: "People & product", tools: ["Product strategy", "Project management", "Team leadership", "Agile", "Cross-functional collaboration"] },
+  { number: "01", name: "Product & entrepreneurship", description: "Turn an ambitious idea into a focused first product.", evidence: "HowApp · concept to delivery", project: "howapp", tools: ["Product strategy", "Product management", "MVP scoping", "Prioritization", "Product delivery", "Business workflows"] },
+  { number: "02", name: "Leadership & execution", description: "Connect technical decisions, team direction, and business needs.", evidence: "Farspeak · CTO / Fresh KTM · technical lead", project: "farspeak", tools: ["Technical leadership", "Team leadership", "Cross-functional collaboration", "Project management", "Agile delivery", "Software architecture"] },
+  { number: "03", name: "Web & native mobile", description: "Build the part people actually touch.", evidence: "HowApp · mobile / Otonomis · iOS & Android", project: "otonomis", tools: ["TypeScript", "React", "Vue", "Swift", "React Native", "Flutter", "Native iOS & Android"] },
+  { number: "04", name: "AI & spatial computing", description: "Bring intelligence into software and stories into physical space.", evidence: "Spelly · AR storytelling / Farspeak · AI tools", project: "spelly", tools: ["LLMs", "CoreML", "Machine learning", "ARKit", "RealityKit", "AI product development", "IoT"] },
+  { number: "05", name: "Backend & architecture", description: "Make the experience dependable beneath the surface.", evidence: "Fresh KTM · integrated ERP", project: "fresh-ktm", tools: ["Node.js", "NestJS", "Express", "MongoDB", "NoSQL", "API design", "System design", "Real-time systems"] },
+  { number: "06", name: "Cloud & delivery", description: "Carry a product from the first deployment into everyday operation.", evidence: "Spelly · AWS / Fresh KTM · CI/CD", project: "spelly", tools: ["AWS", "Google Cloud", "AWS Lambda", "CloudFront", "CI/CD", "DevOps", "Scalable infrastructure"] },
 ];
 
 export const channels = [
@@ -112,6 +115,9 @@ export const channels = [
   { id: "toolbox", label: "Toolbox", number: "04" },
   { id: "contact", label: "Connect", number: "05" },
   { id: "terminal", label: "Terminal", number: "06" },
+  { id: "leadership", label: "Playbook", number: "07" },
+  { id: "arcade", label: "Arcade", number: "08" },
+  { id: "almanac", label: "Almanac", number: "09" },
 ] as const;
 
 export type Channel = typeof channels[number]["id"];

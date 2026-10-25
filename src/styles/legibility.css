@@ -1,0 +1,326 @@
+/* Daylight, paper, and type that can be read without zooming in. */
+.desk-experience { color: #f9f6ed; }
+.desk-experience[data-mood] { --screen-top: #fffdf6; --screen-bottom: #eff1e6; }
+.desk-experience[data-mood='independence'], .desk-experience[data-mood='memorial'], .desk-experience[data-mood='veterans'], .desk-experience[data-mood='presidents'] { --screen-top: #fafcff; --screen-bottom: #e8edf4; }
+.desk-experience[data-mood='tihar'], .desk-experience[data-mood='thanksgiving'], .desk-experience[data-mood='dashain'], .desk-experience[data-mood='newyear'] { --screen-top: #fffaf0; --screen-bottom: #f1e8d5; }
+.desk-experience[data-mood='holi'], .desk-experience[data-mood='teej'], .desk-experience[data-mood='nepalnewyear'] { --screen-top: #fff9f5; --screen-bottom: #f5e7e1; }
+.desk-experience[data-mood='shivaratri'], .desk-experience[data-mood='halloween'] { --screen-top: #faf9ff; --screen-bottom: #eae7f2; }
+.desk-experience[data-mood='chhath'], .desk-experience[data-mood='maghe'], .desk-experience[data-mood='yomari'] { --screen-top: #fffaf1; --screen-bottom: #f2e9d5; }
+.room-background { filter: saturate(.88); }
+.room-shade { background: linear-gradient(180deg, #18261d15, transparent 35%, #131b1233 100%), linear-gradient(90deg, #14251c88, transparent 40%, transparent 80%); }
+.is-focused .room-background { filter: brightness(.95) saturate(.8) blur(3px); }
+.desk-intro { max-width: min(23vw, 300px); }
+.desk-intro h2 { font-weight: 500; text-shadow: 0 2px 14px #10201744; }
+.desk-intro > p:not(.eyebrow) { color: #fff8e9; font-size: 14px; line-height: 1.8; text-shadow: 0 1px 4px #0007; }
+.desk-intro .eyebrow { color: #fff3d7; font-size: 9px; }
+.wordmark > span { font-size: 11px; letter-spacing: 1px; }
+.desk-header nav button { font-size: 14px; font-weight: 500; color: #fffaf1; text-shadow: 0 1px 5px #10231888; }
+.desk-header nav button span { font-size: 10px; color: #e6e6d7; }
+.header-resume { font-size: 13px; background: #223e3099; }
+.intro-location, .intro-location > span { color: #e6e8d7; font-size: 8px; }
+.seasonal-card { background: #fcf7e9f0; color: #334c3c; border-color: #d3c4a5; border-top-color: #9f713e; box-shadow: 0 6px 20px #24332020; backdrop-filter: blur(12px); }
+.seasonal-card-top { color: #56614a; font-size: 8px; letter-spacing: .5px; }
+.seasonal-card-body strong { color: #384c35; font-size: 14px; font-weight: 600; }
+.seasonal-symbol { color: #946731; }
+.seasonal-card-body small { font-size: 8px; color: #64705a; }
+.seasonal-card-bottom { color: #5a624f; font-size: 10px; border-color: #b9b79d77; }
+.monitor-screen { color: #293e33; box-shadow: inset 0 0 25px #7d8a7333, 0 0 22px #faf3d83b; }
+.crt-glass { opacity: .08; box-shadow: inset 0 0 15px #5b6d4c22; }
+.crt-glass:after { display: none; }
+.screen-status { color: #5d6c58; border-color: #4d67452b; font-size: 10px; letter-spacing: .8px; margin-inline: 24px; }
+.screen-status .live-dot { background: #477f50; box-shadow: none; }
+.screen-scroll { scrollbar-color: #6a806755 transparent; }
+.screen-home h1 { font-weight: 500; color: #233d31; line-height: 1.05; letter-spacing: -2px; }
+.screen-home h1 em { color: #3e6549; }
+.screen-spark { color: #8e7040; }
+.screen-home .eyebrow { color: #596e53; font-size: 10px; letter-spacing: 1px; }
+.home-role { color: #35523d; font-size: 15px; font-weight: 600; }
+.home-description { color: #53614f; font-size: 14px; line-height: 1.8; }
+.screen-cta { background: #2f553e; color: #fffef4; font: 500 13px var(--sans); border-color: #2f553e; padding: 13px 17px; }
+.screen-cta:hover { background: #244632; color: #fff; }
+.home-about { color: #4b5c44; font: 500 12px var(--sans); }
+.home-play, .home-play > span { color: #795b36; font-size: 10px; }
+.home-play:hover { color: #3e5a35; }
+.screen-home-footer { color: #5c6c54; font-size: 8px; border-color: #586d412b; }
+.screen-home-footer i { background: #548550; box-shadow: none; }
+.channel-controls button > span { color: #f0e8d3; font-size: 9px; }
+.channel-controls .selected > span { color: #f4edcc; }
+.desk-footer { font-size: 10px; background: linear-gradient(transparent, #13231977); }
+.desk-tools button { font-size: 10px; background: #263c2eb3; border-color: #f0e5cd55; color: #fff5df; padding: 10px 12px; }
+.desk-footer-location time { color: #e0e4ce; }
+.keyboard-hints { color: #f1ecd9; font-size: 9px; }
+.back-to-desk { color: #fff7e7; background: #263d2deb; font-size: 12px; }
+.season-preview-banner { background: #fffbef; color: #3e513b; border-color: #c0b38c; font-size: 10px; }
+.season-preview-banner button { color: #6f542d; }
+.desk-experience :focus-visible, .reading-view :focus-visible { outline: 3px solid #a36b23; outline-offset: 3px; }
+.portfolio-content { --panel-ink: #283f33; --panel-muted: #5b6d56; --panel-surface: #46643208; --panel-line: #42643b35; --panel-accent: #7b582d; color: #43553f; font-size: 14px; line-height: 1.8; }
+.portfolio-content .eyebrow { color: #63744f; font-size: 10px; letter-spacing: .8px; }
+.portfolio-content h2 { color: #293e30; font-weight: 500; line-height: 1.18; letter-spacing: -1px; }
+.portfolio-content h2 em { color: #5c724c; }
+.portfolio-content p.content-lead { color: #495c42; font-size: 15px; line-height: 1.85; }
+.portfolio-content h3 { color: #304d37; font-size: 17px; }
+.about-facts { border-color: #526b3d33; }
+.about-facts > span, .project-meta > span { color: #63744f; font-size: 10px; }
+.about-facts strong, .project-meta strong { color: #2d4631; font-size: 14px; }
+.section-label a { font-size: 12px; color: #4e673a; }
+.section-label a:hover { color: #253e2b; }
+.career-item { border-color: #526b3d2b; }
+.career-year { font-size: 11px; color: #63764d; }
+.career-item h4 { color: #2d4631; font-size: 16px; }
+.career-item p { font-size: 13px; }
+.career-item p.career-role { color: #536c45; font-size: 12px; }
+.career-item small { color: #62744e; font-size: 10px; }
+.project-filters button { border-color: #6c81584d; color: #49603d; font-size: 10px; padding: 9px 12px; }
+.project-filters button[aria-pressed='true'] { background: #37583c; border-color: #37583c; color: #faf8e9; }
+.work-row { border-color: #50653d33; }
+.work-row:hover { background: #637a4b0b; }
+.work-description { color: #536746; font-size: 13px; }
+.work-description strong { color: #2d4633; font-size: 26px; }
+.work-category { color: #65764f; font-size: 9px; }
+.work-row > svg { color: #4d6a3e; }
+.project-subtitle { color: #5f6e43; }
+.contributions { color: #4b6042; }
+.contributions li:before { color: #71804f; }
+.tool-tags span { color: #465f3b; border-color: #677d4440; background: #607c330b; font-size: 11px; }
+.text-action, .next-project > span { color: #5a713f; font-size: 12px; }
+.text-action:hover { color: #2b4a32; }
+.next-project { border-color: #526b3d33; }
+.next-project strong { color: #304e35; }
+.skill-list article { border-color: #50653d33; }
+.skill-list article > span { color: #6c7d51; font-size: 11px; }
+.skill-description { color: #586b4b; font-size: 13px; }
+.skill-evidence { font-size: 10px; }
+.contact-intents a { font-size: 12px; padding: 10px 12px; color: #405c3a; }
+.email-link a { color: #304f36; }
+.email-link button { color: #516c40; }
+.copy-status { color: #5f744b; font-size: 11px; }
+.social-directory a { border-color: #526b3d33; }
+.social-directory a > span { color: #354f38; font-size: 16px; }
+.social-directory a small { color: #60764e; font-size: 12px; }
+.contact-signoff { color: #63734c; }
+.contact-signoff > span { color: #31573a; }
+.terminal-content { background: #edf2df; color: #345139; font-size: 12px; }
+.terminal-title { color: #4c693d; font-size: 9px; border-color: #63814b33; }
+.terminal-title > span { color: #657a4b; }
+.terminal-log pre { color: #3b5a3a; }
+.terminal-content form { border-color: #65834955; }
+.terminal-content input { color: #2c4c30; }
+.terminal-content input::placeholder { color: #738664; }
+.terminal-content > p, .terminal-content label { color: #63784d; }
+.screen-asleep { color: #d2dfbd; }
+.screen-asleep button { color: #d2dfbd; }
+.leadership-statement p { font-size: 23px; }
+.leadership-statement > span, .chapter-artifact > span { font-size: 9px; }
+.playbook-invite { font-size: 11px; }
+.playbook-tabs button { background: #fffdf44d; }
+.playbook-tabs strong { font-size: 11px; }
+.playbook-tabs button span { font-size: 9px; }
+.playbook-tabs button[aria-selected='true'] { background: #37583c; color: #faf8e9; border-color: #37583c; }
+.playbook-panel > h3 { font-size: 28px; }
+.chapter-question { font-size: 10px; }
+.playbook-panel > p, .chapter-artifact p { font-size: 14px; }
+.chapter-evidence > small { font-size: 9px; }
+.chapter-evidence p, .builder-invitation p { font-size: 13px; }
+.chapter-evidence a, .builder-invitation a { font-size: 12px; }
+.arcade-cabinet { border-color: #9cae7b88; background: radial-gradient(ellipse at 50% 100%, #e4eacf, #f9f8e9); }
+.arcade-marquee { color: #4f683d; background: #647d3620; font-size: 10px; }
+.arcade-pixel-art span { color: #936b38; }
+.arcade-pixel-art span:nth-child(even) { color: #648157; }
+.insert-curiosity { color: #62764c; font-size: 9px; }
+.arcade-games > button { background: #fffdf76b; }
+.arcade-games > button:hover { background: #e6ecd5; border-color: #7a895b; }
+.arcade-games h3 { font-size: 26px; }
+.arcade-games p { font-size: 13px; }
+.arcade-games strong { font-size: 12px; }
+.game-number, .game-meta { font-size: 9px; }
+.game-heading h3 { font-size: 32px; }
+.game-heading .eyebrow { font-size: 9px; }
+.signal-game > p, .launch-game > p { font-size: 13px; }
+.game-scoreboard { background: #fffdf76b; }
+.game-scoreboard > span { font-size: 9px; }
+.memory-card { background: repeating-linear-gradient(45deg, #cbd8b52b, #cbd8b52b 3px, transparent 3px, transparent 7px), #edf0db; border-color: #9aaf7966; }
+.memory-card:not(:disabled):hover { background-color: #dce5c7; border-color: #6b8552; }
+.memory-card > span { color: #6f855b; }
+.memory-card small { color: #5b7049; font-size: 9px; }
+.memory-card.is-revealed { background: #fff5d8; border-color: #b39960; }
+.memory-card.is-matched { background: #d5e3c5; border-color: #7e9f6399; }
+.memory-card.is-matched > span { color: #49663c; }
+.memory-card.is-matched small { color: #49663c; font-size: 7px; }
+.game-message { font-size: 12px; }
+.game-message strong { font-size: 15px; }
+.arcade-footnote { color: #65784e; font-size: 10px !important; }
+.launch-meters label { font-size: 10px; }
+.launch-meters meter::-webkit-meter-bar { background: #dfe6ce; border-color: #a1b084; }
+.launch-meters meter::-webkit-meter-optimum-value { background: #688752; }
+.launch-meters meter::-moz-meter-bar { background: #688752; }
+.launch-progress i { background: #c0c9a5; }
+.launch-progress i.is-current { background: #7b8851; }
+.launch-question p { font-size: 13px; }
+.launch-options button { background: #fffdf75c; }
+.launch-options button:hover:not(:disabled), .launch-options button.is-selected { background: #e1e8cc; border-color: #84935e; }
+.launch-options strong { font-size: 14px; }
+.launch-options small { font-size: 12px; }
+.option-letter { color: #61733e; background: #d4dfb599; }
+.decision-feedback p { font-size: 14px; }
+.arcade-primary { background: #36583b; color: #fffdf0; font-size: 12px; }
+.arcade-primary:hover { background: #254b32; }
+.launch-result > p { font-size: 14px; }
+.launch-result li { font-size: 12px; }
+.launch-result li:before { font-size: 10px; }
+.almanac-world-clocks p { font-size: 9px; }
+.almanac-world-clocks small { font-size: 9px; }
+.almanac-feature { background: #f3ead6; border-color: #bfaf8277; }
+.almanac-emblem { color: #9b753a; }
+.almanac-feature h3 { color: #3d5038; font-size: 26px; }
+.almanac-feature p { font-size: 13px; color: #576445; }
+.almanac-feature .eyebrow { font-size: 9px; color: #6b7954; }
+.almanac-feature button { font-size: 11px; color: #71562c; border-color: #997b4d55; }
+.mood-independence, .mood-veterans, .mood-memorial, .mood-presidents { background: linear-gradient(120deg, #e2eaf5, #f1e1db); }
+.mood-independence .almanac-emblem { color: #375f89; text-shadow: 2px 2px #d8a49b; }
+.mood-christmas { background: linear-gradient(120deg, #e2ecd9, #f3e4de); }
+.mood-christmas .almanac-emblem { color: #597641; }
+.mood-holi, .mood-teej, .mood-nepalnewyear { background: linear-gradient(120deg, #f3dfe6, #f2ead7); }
+.mood-thanksgiving, .mood-maghe, .mood-chhath { background: linear-gradient(120deg, #f4e3cf, #eee5c8); }
+.mood-tihar, .mood-newyear { background: linear-gradient(120deg, #f6e8bb, #f6efdd); }
+.mood-halloween, .mood-shivaratri { background: linear-gradient(120deg, #e6e1ed, #f1e5d7); }
+.mood-buddha, .mood-janai { background: linear-gradient(120deg, #f4efd9, #e9eddd); }
+.mood-jatra, .mood-yomari { background: linear-gradient(120deg, #eee1d4, #efe7cc); }
+.theme-preview-heading h3 { font-size: 14px; }
+.theme-preview-heading button { font-size: 10px; }
+.theme-preview-heading button[aria-pressed='true'] { background: #3a5b3b; color: #fffdeb; }
+.theme-swatches button { font-size: 11px; background: #fffef77a; }
+.theme-swatches button[aria-pressed='true'] { border-color: #8f7747; background: #e9dfbd; }
+.theme-swatches button > span { color: #97723c; }
+.theme-swatches .swatch-independence > span, .theme-swatches .swatch-veterans > span, .theme-swatches .swatch-memorial > span, .theme-swatches .swatch-presidents > span { color: #315d87 !important; background: #bbcfe555; }
+.theme-swatches .swatch-holi > span, .theme-swatches .swatch-teej > span, .theme-swatches .swatch-nepalnewyear > span { color: #a55878 !important; }
+.theme-swatches .swatch-buddha > span, .theme-swatches .swatch-janai > span { color: #8c7842 !important; }
+.theme-swatches .swatch-shivaratri > span { color: #716396 !important; }
+.theme-swatches .swatch-monsoon > span { color: #437c96 !important; }
+.theme-swatches .swatch-christmas > span { color: #5d7c46 !important; background: #dfc4b455; }
+.theme-swatches .swatch-thanksgiving > span, .theme-swatches .swatch-halloween > span { color: #a16b35 !important; }
+.almanac-calendar { background: #fffef576; }
+.calendar-instruction { font-size: 10px; }
+.calendar-grid > .weekday { font-size: 10px; }
+.calendar-grid > button { font-size: 12px; }
+.calendar-grid > button[aria-pressed='true'] { color: #fffdeb; background: #3d5e3e; }
+.calendar-grid > button[aria-pressed='true'] .marker-NP { background: #f0c0a1; }
+.calendar-grid > button[aria-pressed='true'] .marker-US { background: #b7d6f5; }
+.calendar-legend, .calendar-legend > small { font-size: 9px; }
+.selected-day > .eyebrow { font-size: 10px; }
+.selected-day article h3 { font-size: 16px; }
+.selected-day article small { font-size: 9px; }
+.selected-day p { font-size: 13px; }
+.selected-day a { font-size: 10px; }
+.calendar-upcoming > h3 { font-size: 16px; }
+.calendar-upcoming strong { font-size: 13px; }
+.calendar-upcoming small, .calendar-upcoming time { font-size: 10px; }
+.calendar-notes { font-size: 12px; }
+.calendar-notes summary { font-size: 11px; }
+.is-focused .seasonal-atmosphere { opacity: .6; }
+.festival-kites i { left: 84%; top: 18%; }
+.festival-kites i:last-child { left: 25%; top: 12%; }
+.american-pennant { left: auto; right: 7%; top: 18%; }
+.firework { left: 81%; top: 10%; }
+.firework-1 { left: 28%; top: 9%; }
+.firework-2 { left: 75%; top: 19%; }
+@media (max-height: 820px) and (min-width: 901px) {
+  .desk-intro { top: 15%; }
+  .desk-intro > p:not(.eyebrow) { font-size: 12px; }
+  .desk-intro h2 { font-size: 42px; }
+  .seasonal-card { margin-top: 14px; }
+  .seasonal-card-body strong { font-size: 12px; }
+  .seasonal-card-bottom { font-size: 8px; }
+  .seasonal-card-top, .seasonal-card-body small { font-size: 7px; }
+  .screen-home h1 { font-size: 44px; }
+  .home-role { font-size: 13px; }
+  .home-description { font-size: 12px; }
+  .home-play { font-size: 9px; }
+  .home-about { font-size: 11px; }
+}
+@media (max-width: 1200px) and (min-width: 901px) {
+  .wordmark > span { font-size: 9px; }
+  .desk-intro > p:not(.eyebrow) { font-size: 12px; }
+  .desk-header { gap: 22px; }
+  .desk-header nav { gap: 22px; }
+  .desk-header nav button { font-size: 12px; }
+}
+@media (max-width: 900px) {
+  .room-shade { background: linear-gradient(#1730236b, #1a311f14 50%, #172e2166); }
+  .desk-intro { max-width: none; }
+  .seasonal-card { margin-top: 18px; }
+  .seasonal-card-body strong { font-size: 13px; }
+  .desk-header nav button { font-size: 13px; }
+  .desk-tools { margin-left: 0; }
+  .desk-tools button { font-size: 10px; }
+  .season-preview-banner { font-size: 9px; }
+}
+@media (max-width: 600px) {
+  .wordmark > span { font-size: 9px; }
+  .desk-header nav { gap: 18px; }
+  .desk-header nav button { font-size: 12px; }
+  .desk-header nav button span { font-size: 9px; }
+  .screen-home h1 { font-size: 51px; }
+  .screen-home .eyebrow { font-size: 9px; }
+  .home-role { font-size: 13px; }
+  .home-description { font-size: 13px; }
+  .screen-cta { font-size: 12px; }
+  .home-about { font-size: 11px; }
+  .home-play { font-size: 10px; }
+  .screen-status { font-size: 9px; margin-inline: 18px; }
+  .screen-home-footer { font-size: 7px; }
+  .portfolio-content { font-size: 14px; padding: 25px 22px 34px; }
+  .portfolio-content h2 { font-size: 32px; }
+  .portfolio-content .eyebrow { font-size: 9px; letter-spacing: .4px; }
+  .portfolio-content p.content-lead { font-size: 14px; }
+  .portfolio-content h3 { font-size: 16px; }
+  .career-item h4 { font-size: 15px; }
+  .career-item p { font-size: 13px; }
+  .career-item p.career-role { font-size: 12px; }
+  .about-facts strong { font-size: 12px; }
+  .section-label { flex-wrap: wrap; }
+  .project-filters button { font-size: 10px; padding: 8px; }
+  .work-description { font-size: 13px; }
+  .work-description strong { font-size: 24px; }
+  .work-category { font-size: 9px; }
+  .email-link a { font-size: 13px; }
+  .contact-intents a { font-size: 11px; }
+  .terminal-content { font-size: 10px; }
+  .playbook-panel { padding: 18px; }
+  .playbook-panel > h3 { font-size: 24px; }
+  .leadership-statement p { font-size: 20px; }
+  .arcade-games { grid-template-columns: 1fr; }
+  .arcade-games > button { padding: 20px; }
+  .arcade-games h3 { font-size: 25px; }
+  .game-heading h3 { font-size: 31px; }
+  .arcade-marquee { font-size: 9px; letter-spacing: 2px; }
+  .insert-curiosity { font-size: 8px; }
+  .launch-options strong { font-size: 13px; }
+  .launch-options small { font-size: 12px; }
+  .launch-meters label { font-size: 9px; }
+  .almanac-feature h3 { font-size: 23px; }
+  .almanac-feature p { font-size: 13px; }
+  .almanac-emblem { width: 34px; font-size: 35px; }
+  .theme-swatches button { font-size: 10px; }
+  .calendar-grid > button { height: 40px; font-size: 11px; }
+  .calendar-grid > .weekday { font-size: 9px; }
+  .calendar-legend { gap: 10px; }
+  .calendar-upcoming strong { font-size: 12px; }
+  .calendar-upcoming time { font-size: 9px; }
+  .calendar-notes { font-size: 11px; }
+}
+/* A stable reading surface keeps navigation legible over every seasonal sky. */
+.desk-header nav { padding: 0 15px; border-radius: 4px; background: #fff9e9ed; box-shadow: 0 3px 14px #1d35231a; }
+.desk-header nav button { color: #2e4b38; text-shadow: none; }
+.desk-header nav button span { color: #687d57; }
+.desk-header nav button:hover, .desk-header nav button[aria-current] { color: #93642e; }
+.desk-intro h2 em { color: #fff1c9; text-shadow: 0 2px 9px #24352366; }
+@media (max-width: 600px) {
+  .desk-header nav { padding-inline: 11px; gap: 15px; }
+  .desk-header nav button { font-size: 11px; }
+}
+@media (max-width: 600px) {
+  .channel-controls { min-width: 0; overflow-x: auto; justify-content: flex-start; gap: 1px; scrollbar-width: none; }
+  .channel-controls button { min-width: 24px; flex-shrink: 0; }
+  .channel-controls button > span { width: 23px; }
+  .monitor-controls { gap: 4px; }
+}

@@ -10,10 +10,10 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "Ujjwal Raj Nepal | Full Stack Developer",
-  description = "Full Stack Developer with over a decade of experience in web apps, 3D tech, AR, DevOps, cloud infrastructure, LLMs, and ML.",
-  keywords = "full stack developer, web development, 3D tech, AR, DevOps, GCP, AWS, LLM, ML, mobile apps",
-  ogImage = "/og-image.png",
+  title = "Ujjwal Raj Nepal | Product Leader & Technologist",
+  description = "Product leadership, technical direction, and hands-on engineering. Building useful products from Nepal since 2016.",
+  keywords = "Ujjwal Raj Nepal, product leadership, CTO, entrepreneurship, product strategy, full stack engineering, AI, AR, cloud, mobile apps",
+  ogImage = "/images/kathmandu-study-daylight.jpg",
   ogUrl = "https://ujjwalnepal.me/",
 }: SEOHeadProps) => {
   const imageUrl = new URL(ogImage, ogUrl).href;

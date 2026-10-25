@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, Copy, Github, Linkedin, Mail, Printer } from "lucide-react";
 import { Link } from "react-router-dom";
 import { experience, profile, projects, skillGroups, type Channel, type Project } from "@/data/portfolio";
+import LeadershipContent from "./LeadershipContent";
 
 export function AboutContent() {
   return <div className="portfolio-content">
@@ -57,10 +58,13 @@ export function WorkContent({ selected, onSelect }: { selected: string | null; o
 }
 
 export function ToolboxContent() {
+  const [lens, setLens] = useState("All disciplines");
+  const visible = skillGroups.filter((_, index) => lens === "All disciplines" || (lens === "Product & people" ? index < 2 : index >= 2));
   return <div className="portfolio-content">
-    <p className="eyebrow">04 / TOOLS OF THE TRADE</p><h2>Whatever the idea<br /><em>calls for.</em></h2>
-    <p className="content-lead">From a native mobile interface to the infrastructure behind it. These are the tools and disciplines I bring to the work.</p>
-    <div className="skill-list">{skillGroups.map(group => <article key={group.number}><span>{group.number}</span><div><h3>{group.name}</h3><div className="tool-tags">{group.tools.map(tool => <span key={tool}>{tool}</span>)}</div></div></article>)}</div>
+    <p className="eyebrow">04 / RANGE, WITH A REASON</p><h2>From the big picture<br /><em>to the last detail.</em></h2>
+    <p className="content-lead">Product judgment, team direction, and the engineering to bring it to life. Pick a lens to explore.</p>
+    <div className="project-filters" aria-label="Filter capabilities">{["All disciplines", "Product & people", "Engineering"].map(item => <button key={item} aria-pressed={lens === item} onClick={() => setLens(item)}>{item}</button>)}</div>
+    <div className="skill-list">{visible.map(group => <article key={group.number}><span>{group.number}</span><div><h3>{group.name}</h3><p className="skill-description">{group.description}</p><div className="tool-tags">{group.tools.map(tool => <span key={tool}>{tool}</span>)}</div><Link className="skill-evidence" to={`/#work/${group.project}`}>{group.evidence}<ArrowUpRight size={12} /></Link></div></article>)}</div>
   </div>;
 }
 
@@ -79,7 +83,8 @@ export function ContactContent() {
   }
   return <div className="portfolio-content contact-content">
     <p className="eyebrow">05 / GOOD THINGS START WITH HELLO</p><h2>Have something<br /><em>in mind?</em></h2>
-    <p className="content-lead">An idea to build, a problem to untangle, or just a shared curiosity. I'd love to hear from you.</p>
+    <p className="content-lead">Starting something new, finding a product’s direction, or bringing a team and a technical vision together? Let’s make the next step a conversation.</p>
+    <div className="contact-intents" aria-label="Start a conversation">{["Product leadership", "Build an MVP", "Technical direction", "Something unexpected"].map(topic => <a key={topic} href={`mailto:${profile.email}?subject=${encodeURIComponent(topic)}`}>{topic}<ArrowUpRight size={12} /></a>)}</div>
     <div className="email-link"><a href={`mailto:${profile.email}`}>{profile.email}<ArrowUpRight size={20} /></a><button onClick={copyEmail} aria-label={copied ? "Email copied" : "Copy email address"}>{copied ? <Check size={17} /> : <Copy size={17} />}</button></div>
     <p className="copy-status" role="status">{copied ? "Email copied. Talk soon!" : copyFailed ? "Select the email address above to copy it, or click to open your email app." : ""}</p>
     <div className="social-directory">
@@ -102,9 +107,9 @@ export function TerminalContent({ onNavigate }: { onNavigate: (channel: Channel)
     setCommand("");
     if (!value) return;
     if (value === "clear") { setHistory([]); return; }
-    const destinations: Record<string, Channel> = { about: "about", work: "work", skills: "toolbox", toolbox: "toolbox", contact: "contact", home: "home" };
+    const destinations: Record<string, Channel> = { about: "about", work: "work", skills: "toolbox", toolbox: "toolbox", contact: "contact", home: "home", play: "arcade", arcade: "arcade", leadership: "leadership", playbook: "leadership", calendar: "almanac", almanac: "almanac" };
     const responses: Record<string, string> = {
-      help: "Take a look around:\n  about     Meet the person\n  work      Browse selected projects\n  skills    Open the toolbox\n  contact   Say hello\n  whoami    A quick introduction\n  date      The time in Nepal\n  clear     Clear this screen\n  home      Back to the desk",
+      help: "Take a look around:\n  about     Meet the person\n  work      Browse selected projects\n  skills    Open the toolbox\n  playbook  Product & leadership\n  play      Take an arcade break\n  calendar  Nepal + US almanac\n  contact   Say hello\n  whoami    A quick introduction\n  date      The time in Nepal\n  clear     Clear this screen\n  home      Back to the desk",
       whoami: `${profile.name}\n${profile.role}\nBuilding from Nepal since 2016.`,
       date: new Date().toLocaleString("en-GB", { timeZone: "Asia/Kathmandu" }) + " NPT",
     };
@@ -120,9 +125,10 @@ export function ReadingView({ onReturn }: { onReturn: () => void }) {
   return <div className="reading-view">
     <header className="reading-header"><Link to="/" onClick={onReturn} className="wordmark">UJJ <span>Ujjwal Raj Nepal</span></Link><button onClick={onReturn}>Back to the desk <ArrowUpRight size={15} /></button></header>
     <main className="reading-main">
-      <div className="reading-hero"><p className="eyebrow">NAMASTE. HELLO. WELCOME.</p><h1>Ujjwal Raj Nepal<span>Engineer. Builder.<br /><em>Endlessly curious.</em></span></h1><p>{profile.introduction}</p><nav aria-label="Page sections"><a href="#about">About <ArrowDown size={13} /></a><a href="#work">Selected work <ArrowDown size={13} /></a><a href="#toolbox">Toolbox <ArrowDown size={13} /></a><a href="#contact">Connect <ArrowDown size={13} /></a></nav></div>
+      <div className="reading-hero"><p className="eyebrow">NAMASTE. HELLO. WELCOME.</p><h1>Ujjwal Raj Nepal<span>Product leader.<br />Hands-on builder.<br /><em>Entrepreneurial at heart.</em></span></h1><p>{profile.introduction}</p><nav aria-label="Page sections"><a href="#about">About <ArrowDown size={13} /></a><a href="#leadership">Playbook <ArrowDown size={13} /></a><a href="#work">Selected work <ArrowDown size={13} /></a><a href="#toolbox">Toolbox <ArrowDown size={13} /></a><a href="#contact">Connect <ArrowDown size={13} /></a></nav></div>
       <section id="about"><AboutContent /></section>
       <section id="work" ref={workRef}><WorkContent selected={selected} onSelect={id => { setSelected(id); workRef.current?.scrollIntoView({ behavior: "smooth" }); }} /></section>
+      <section id="leadership"><LeadershipContent /></section>
       <section id="toolbox"><ToolboxContent /></section>
       <section id="contact"><ContactContent /></section>
     </main><footer className="reading-footer">© {new Date().getFullYear()} Ujjwal Raj Nepal <span>Made with curiosity, in Nepal.</span></footer>
@@ -130,5 +136,19 @@ export function ReadingView({ onReturn }: { onReturn: () => void }) {
 }
 
 export function ResumeContent() {
-  return <div className="resume-view"><div className="resume-toolbar"><Link to="/">← Back to the desk</Link><button onClick={() => window.print()}><Printer size={16} /> Print / Save PDF</button></div><main className="resume-paper"><header><p className="eyebrow">ENGINEERING · PRODUCT · CREATIVE TECHNOLOGY</p><h1>{profile.name}</h1><p>{profile.role} · Nepal</p><div className="resume-links"><a href={`mailto:${profile.email}`}>{profile.email}</a><a href={profile.github}>github.com/ujjwalnepal</a><a href={profile.linkedin}>LinkedIn</a></div></header><section><h2>Profile</h2><p>{profile.biography}</p></section><section><h2>Experience</h2>{experience.map(item => <article key={item.company}><div><h3>{item.company}</h3>{(item.period || item.since) && <span>{item.period || `Started ${item.since}`}</span>}</div><h4>{item.role}</h4><p>{item.description}</p></article>)}</section><section><h2>Skills & disciplines</h2>{skillGroups.map(group => <p key={group.name}><strong>{group.name}:</strong> {group.tools.join(" · ")}</p>)}</section></main></div>;
+  const whoslive = projects.find(project => project.id === "whoslive")!;
+  return <div className="resume-view">
+    <div className="resume-toolbar"><Link to="/">← Back to the desk</Link><button onClick={() => window.print()}><Printer size={16} /> Print / Save PDF</button></div>
+    <main className="resume-paper">
+      <header className="resume-header"><p className="eyebrow">PRODUCT LEADERSHIP · TECHNOLOGY · ENTREPRENEURIAL THINKING</p><h1>{profile.name}</h1><p className="resume-role">{profile.role}</p>
+        <div className="resume-links"><span>Nepal</span><a href={`mailto:${profile.email}`}>{profile.email}</a><a href="https://ujjwalnepal.me">ujjwalnepal.me</a><a href={profile.linkedin}>LinkedIn</a><a href={profile.github}>GitHub / ujjwalnepal</a></div>
+      </header>
+      <section className="resume-summary"><h2>Profile</h2><p>{profile.resumeSummary}</p></section>
+      <section className="resume-featured-product"><h2>Featured product</h2><div className="resume-product-heading"><h3>{whoslive.title}</h3><a href={whoslive.url}>whoslive.io <ArrowUpRight size={12} /></a></div><h4>Live-stream discovery · Personalized feeds · Creator community</h4><p>{whoslive.description}</p></section>
+      <section className="resume-strengths"><h2>Leadership & product capabilities</h2><div className="resume-capabilities">{skillGroups.slice(0, 2).map(group => <div key={group.name}><h3>{group.name}</h3><p>{group.tools.join(" · ")}</p></div>)}</div></section>
+      <section className="resume-experience"><h2>Experience</h2>{experience.map(item => <article key={item.company}><div className="resume-job-heading"><h3>{item.company}</h3>{item.since && <span>Started {item.since}</span>}</div><h4>{item.role}</h4><ul>{item.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul></article>)}</section>
+      <section className="resume-skills"><h2>Technical skills</h2><div className="resume-skill-grid">{skillGroups.slice(2).map(group => <div key={group.name}><h3>{group.name}</h3><p>{group.tools.join(" · ")}</p></div>)}</div></section>
+      <footer className="resume-footer"><span>Selected projects, product thinking, and contact</span><a href="https://ujjwalnepal.me">ujjwalnepal.me</a></footer>
+    </main>
+  </div>;
 }
