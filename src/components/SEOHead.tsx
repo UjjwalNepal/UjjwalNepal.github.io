@@ -14,8 +14,9 @@ const SEOHead = ({
   description = "Full Stack Developer with over a decade of experience in web apps, 3D tech, AR, DevOps, cloud infrastructure, LLMs, and ML.",
   keywords = "full stack developer, web development, 3D tech, AR, DevOps, GCP, AWS, LLM, ML, mobile apps",
   ogImage = "/og-image.png",
-  ogUrl = "https://ujjwalnepal.me",
+  ogUrl = "https://ujjwalnepal.me/",
 }: SEOHeadProps) => {
+  const imageUrl = new URL(ogImage, ogUrl).href;
   return (
     <Helmet>
       <title>{title}</title>
@@ -27,14 +28,14 @@ const SEOHead = ({
       <meta property="og:url" content={ogUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={imageUrl} />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={ogUrl} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={ogImage} />
+      <meta property="twitter:image" content={imageUrl} />
       
       {/* Canonical URL */}
       <link rel="canonical" href={ogUrl} />

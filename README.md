@@ -62,8 +62,24 @@ This project is built with .
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/ced848c8-03ef-4bb5-91a2-d3c300e30a16) and click on Share -> Publish.
+The portfolio is published at https://ujjwalnepal.me/ using GitHub Pages.
+The repository address, https://ujjwalnepal.github.io/, redirects to this primary
+domain. `public/CNAME` preserves the custom domain in the production build.
 
-## I want to use a custom domain - is that possible?
+Push changes to the remote `master` branch to run `.github/workflows/deploy.yml`.
+The workflow installs dependencies with `npm ci`, checks TypeScript, builds the
+Vite application, and deploys `dist`. In repository Settings → Pages, the build
+source must be **GitHub Actions**.
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+To check the production build locally:
+
+```sh
+npm ci
+npm run typecheck
+npm run build
+npm run preview
+```
+
+The build creates entry pages for `/resume/` and `/admin/`, so direct links and
+refreshes work on GitHub Pages. Unknown paths use the app's `404.html` page.
+When adding routes to `src/App.tsx`, update `scripts/prepare-pages.mjs` as well.

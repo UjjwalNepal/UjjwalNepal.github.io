@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { BriefcaseBusiness, Calendar } from "lucide-react";
@@ -34,35 +33,42 @@ const Experience = () => {
     };
   }, []);
   
-  // Sample work experiences
+  // Work experiences based on resume
   const experiences = [
     {
-      title: "Lead Full Stack Developer",
-      company: "Tech Innovators Inc.",
-      period: "2019 - Present",
-      description: "Leading development of complex web applications from concept to deployment. Implementing best practices in code quality and architecture.",
-      technologies: ["React", "Node.js", "AWS", "MongoDB", "Docker", "CI/CD"]
+      title: "Lead Technical Consultant",
+      company: "Fresh KTM",
+      period: "Apr 2022 - Present",
+      description: "Led development of an innovative ERP system for agritech, focusing on supply chain efficiency and POS functionality. Architected scalable systems with CI/CD pipelines and created compliant Accounting and Billing modules.",
+      technologies: ["ERP Systems", "CI/CD", "Agile", "Data Security", "DevOps", "Supply Chain"]
     },
     {
-      title: "Senior Software Engineer",
-      company: "Digital Solutions Ltd.",
-      period: "2016 - 2019",
-      description: "Architected and developed scalable web applications and services. Improved system performance and implemented DevOps practices.",
-      technologies: ["Angular", "Python", "GCP", "PostgreSQL", "Kubernetes"]
+      title: "Lead Full-stack Developer",
+      company: "Stealth AI Startup",
+      period: "Oct 2021 - Present",
+      description: "Led development of an innovative AR storytelling app for iOS using ARKit and RealityKit. Integrated CoreML and LLMs for AI features and engineered a scalable NoSQL database backend on AWS.",
+      technologies: ["ARKit", "RealityKit", "CoreML", "LLMs", "AWS", "NoSQL", "Lambda"]
     },
     {
-      title: "3D & AR Developer",
-      company: "Immersive Technologies",
-      period: "2014 - 2016",
-      description: "Created immersive 3D and AR experiences for web and mobile platforms. Optimized graphics for performance across different devices.",
-      technologies: ["Three.js", "WebGL", "AR.js", "Unity", "Mobile AR"]
+      title: "Full-stack Developer/Project Manager",
+      company: "HowApp: Play at Home",
+      period: "Apr 2019 - Present",
+      description: "Spearheaded development of a pioneering parenting app, leading from concept to delivery. Managed team of developers and designers while driving product vision focusing on community and practicality.",
+      technologies: ["Full Stack", "Project Management", "Mobile Apps", "UX Design", "Community Features"]
     },
     {
-      title: "Full Stack Developer",
-      company: "Web Solutions Group",
-      period: "2011 - 2014",
-      description: "Developed responsive web applications and e-commerce solutions. Collaborated with designers to implement intuitive user interfaces.",
-      technologies: ["JavaScript", "PHP", "MySQL", "HTML/CSS", "jQuery"]
+      title: "ML Engineer/Full Stack Developer",
+      company: "Otonomis",
+      period: "May 2017 - Present",
+      description: "Led development of a comprehensive tracking system for vehicle fleet management. Created scalable tracking server and native mobile apps for iOS and Android with real-time tracking and reporting.",
+      technologies: ["ML", "IoT", "iOS", "Android", "Fleet Management", "Real-time Tracking"]
+    },
+    {
+      title: "Engineer",
+      company: "Computer Science Research and Development Center",
+      period: "Apr 2016 - Present",
+      description: "Led research and development for cross-platform mobile applications with focus on seamless functionality across iOS and Android. Pioneered adaptive design principles and uniform user experience strategies.",
+      technologies: ["React Native", "Flutter", "Cross-Platform", "Mobile Development", "UX"]
     }
   ];
   

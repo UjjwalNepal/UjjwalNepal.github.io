@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Progress } from "@/components/ui/progress";
 
@@ -42,43 +41,43 @@ const Skills = () => {
     };
   }, []);
   
-  // Technical skills
+  // Technical skills based on resume
   const technicalSkills = [
-    { name: "JavaScript/TypeScript", level: 95 },
-    { name: "React & React Native", level: 90 },
-    { name: "Node.js & Express", level: 92 },
-    { name: "AWS & GCP", level: 85 },
-    { name: "Docker & Kubernetes", level: 80 },
-    { name: "Three.js & WebGL", level: 88 },
-    { name: "Python & ML", level: 82 },
-    { name: "DevOps & CI/CD", level: 87 }
+    { name: "Full Stack Development", level: 95 },
+    { name: "MERN/MEVN Stack", level: 92 },
+    { name: "Mobile Development (iOS/Android)", level: 90 },
+    { name: "Augmented Reality", level: 88 },
+    { name: "Project Management", level: 85 },
+    { name: "Software Architecture", level: 92 },
+    { name: "DevOps & Infrastructure", level: 88 },
+    { name: "Machine Learning", level: 82 }
   ];
   
-  // Tool categories
+  // Tool categories based on resume
   const toolCategories = [
     {
-      category: "Frontend",
-      tools: ["React", "Vue", "Angular", "Next.js", "Tailwind CSS", "TypeScript", "GraphQL", "Redux"]
+      category: "Frontend & Mobile",
+      tools: ["React", "Vue", "Swift", "React Native", "Flutter", "ARKit", "RealityKit", "Cross-Platform"]
     },
     {
       category: "Backend",
-      tools: ["Node.js", "Express", "Django", "Flask", "Spring Boot", "NestJS", "REST API", "GraphQL"]
+      tools: ["Node.js", "NestJS", "MongoDB", "NoSQL", "AWS Lambda", "Express", "REST API"]
     },
     {
-      category: "Database",
-      tools: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase", "Elasticsearch", "DynamoDB", "Cassandra"]
+      category: "Infrastructure",
+      tools: ["AWS", "Google Cloud Platform", "CI/CD", "DevOps", "Scalability", "Amazon CloudFront"]
     },
     {
-      category: "DevOps",
-      tools: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "AWS", "GCP", "Terraform", "Ansible"]
+      category: "Software Architecture",
+      tools: ["System Design", "Microservices", "API Design", "Cloud Architecture", "Scalable Systems"]
     },
     {
-      category: "3D & Graphics",
-      tools: ["Three.js", "WebGL", "Unity", "AR.js", "D3.js", "Canvas API", "SVG", "GLSL"]
+      category: "AI & ML",
+      tools: ["Machine Learning", "CoreML", "LLMs", "Research", "Data Analysis", "IoT Integration"]
     },
     {
-      category: "Machine Learning",
-      tools: ["TensorFlow", "PyTorch", "scikit-learn", "Hugging Face", "LangChain", "OpenAI API", "NLP", "Computer Vision"]
+      category: "Management",
+      tools: ["Project Management", "Product Management", "Agile", "Team Leadership", "Supply Chain Management"]
     }
   ];
   
@@ -167,10 +166,10 @@ const Skills = () => {
           {/* Experience metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             {[
-              { value: "10+", label: "Years Experience" },
-              { value: "50+", label: "Projects Completed" },
-              { value: "20+", label: "Happy Clients" },
-              { value: "5+", label: "Business Built" }
+              { value: "8+", label: "Years Experience" },
+              { value: "5+", label: "Companies" },
+              { value: "Multiple", label: "Products Built" },
+              { value: "AR/VR/AI", label: "Specializations" }
             ].map((metric, idx) => (
               <div 
                 key={idx} 
