@@ -17,7 +17,7 @@ export default function App() {
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Suspense fallback={<div role="status" className="min-h-screen flex items-center justify-center bg-[#18271f] text-[#e5e5ce]">Opening…</div>}>
+        <Suspense fallback={<div role="status" className="portfolio-site route-loading">Opening…</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/admin" element={<Admin />} />

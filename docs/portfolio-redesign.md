@@ -1,4 +1,33 @@
-# Ujjwal's desk
+# Current site: October 26, 2026
+
+The current design is a typography-led personal portfolio. It replaces the simulated room, CRT monitor, decorative project diagrams, scanlines, ambient audio, and small display labels with normal document scrolling, a single type family, direct writing, and a visible project index. This revision responds to the user's request to remove the generated/template appearance.
+
+## Direction and references
+
+Reviewed [Paco Coursey](https://paco.me/), [Frank Chimero](https://frankchimero.com/), and [Rauno Freiberg](https://rauno.me/) as alternative personal-site structures. The final implementation uses its own layout: a large name, an actual portrait, a short introduction, six project rows, and separate pages for the interactive features. No reference site's code, artwork, biography, or project content was copied.
+
+Typography alternatives included system sans-serif, [Public Sans](https://digital.gov/resources/an-introduction-to-typography), and [IBM Plex Sans](https://www.ibm.com/plex/). The selected font is IBM Plex Sans at weights 400–600, self-hosted as a 40 KB Latin WOFF2 with a system fallback for Devanagari. Its unchanged SIL Open Font License is in `public/fonts/OFL.txt`. There are no Google Fonts requests in the current design. Body text uses 16–21px, with compact labels reserved for secondary information.
+
+The portrait is the user's existing public [GitHub avatar](https://avatars.githubusercontent.com/u/13235054?v=4), saved unchanged as `public/images/ujjwal-nepal.jpg`. It is a real photo, not generated artwork. The former generated room images are no longer loaded by the site or used for social previews.
+
+## Preserved content and behavior
+
+- WhosLive leads the homepage project list and remains prominently featured in the résumé. Personal role and employment dates remain unconfirmed; they have not been invented.
+- Farspeak, Fresh KTM, Spelly, HowApp, and Otonomis retain their existing sourced descriptions and career facts.
+- Project filters, product-approach tabs with arrow-key navigation, skill filters, contact links and clipboard copying remain available.
+- Signal Match and Launch Lab retain their rules, score storage, feedback, restart controls, and result sharing. Game screens now use normal page scrolling.
+- The Nepal / US calendar retains all dates, sources, recurring US rules, previews, and Kathmandu / New York clocks. Seasonal colors appear in the accent and calendar panel while the main reading surface remains consistent.
+- Existing `#work/...`, `#leadership`, `#arcade`, `#almanac`, `#toolbox`, and terminal URLs still work. The old `?reading=1` URL opens the standard readable site. `/resume/`, GitHub Pages routing, and the primary domain remain unchanged.
+
+## Verification
+
+TypeScript, all nine calendar/game tests, targeted ESLint on the changed files, and the production build pass. Safari review covered desktop, 390px homepage/résumé and 320px almanac layouts, WhosLive details, project filtering, a complete four-round Launch Lab session, Fourth of July preview, product-approach keyboard navigation, and a two-page A4 résumé print preview. Initial compiled CSS is approximately 106 KB versus 166 KB previously; initial JavaScript is approximately 379 KB versus 419 KB.
+
+The sections below are the implementation history of the retired desk design, retained for provenance.
+
+---
+
+# Previous design: Ujjwal's desk
 
 Local redesign of the existing Vite / React portfolio. Preview with `npm run dev`.
 

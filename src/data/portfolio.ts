@@ -4,8 +4,8 @@ export const profile = {
   email: "nepalujjwal95@gmail.com",
   github: "https://github.com/ujjwalnepal",
   linkedin: "https://np.linkedin.com/in/ujjwal-raj-nepal-6526a2b0",
-  introduction: "I connect product vision, people, and engineering to turn an idea into something useful. A product leader and hands-on technologist in Nepal, with an entrepreneurial streak and a soft spot for ambitious problems.",
-  biography: "I've been building software since 2016, moving between technical leadership, product direction, and hands-on engineering. From serving as CTO at Farspeak to leading HowApp from concept to delivery, I care about the whole journey: the problem, the people, the product, and the systems that keep it running.",
+  introduction: "I’m Ujjwal Raj Nepal, a product leader and engineer based in Nepal. Previously CTO at Farspeak, with work across live-streaming, AI, enterprise systems, and mobile apps.",
+  biography: "I’m Ujjwal, a product leader and engineer based in Nepal. I started building software in 2016. Since then, I’ve served as CTO at Farspeak, led the team behind HowApp, and built systems across mobile, AI, and enterprise operations.",
   resumeSummary: "Product leader and hands-on technologist building software since 2016. Experience spans CTO responsibilities, cross-functional team leadership, product delivery, and full-stack engineering. Brings an entrepreneurial approach to translating business needs into focused products, with work across AI developer tools, enterprise operations, mobile, and augmented reality.",
 };
 
@@ -112,11 +112,11 @@ export const channels = [
   { id: "home", label: "Home", number: "01" },
   { id: "about", label: "About", number: "02" },
   { id: "work", label: "Work", number: "03" },
-  { id: "toolbox", label: "Toolbox", number: "04" },
-  { id: "contact", label: "Connect", number: "05" },
+  { id: "toolbox", label: "Skills", number: "04" },
+  { id: "contact", label: "Contact", number: "05" },
   { id: "terminal", label: "Terminal", number: "06" },
-  { id: "leadership", label: "Playbook", number: "07" },
-  { id: "arcade", label: "Arcade", number: "08" },
+  { id: "leadership", label: "Approach", number: "07" },
+  { id: "arcade", label: "Play", number: "08" },
   { id: "almanac", label: "Almanac", number: "09" },
 ] as const;
 

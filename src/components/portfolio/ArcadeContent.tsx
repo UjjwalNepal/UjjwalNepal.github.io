@@ -24,8 +24,8 @@ function MemoryGame() {
   }, [complete, best, game.moves]);
 
   return <div className="signal-game">
-    <div className="game-heading"><div><span className="eyebrow">01 / A MOMENT OF FOCUS</span><h3>Signal Match</h3></div><button className="arcade-icon-button" onClick={() => setGame(newMemoryGame())} aria-label="Restart Signal Match"><RotateCcw size={17} /></button></div>
-    <p>Six pairs. A little attention. Flip two cards to find what belongs together. No timer, no rush.</p>
+    <div className="game-heading"><div><span className="eyebrow">Memory / 01</span><h1>Signal Match</h1></div><button className="arcade-icon-button" onClick={() => setGame(newMemoryGame())} aria-label="Restart Signal Match"><RotateCcw size={17} /></button></div>
+    <p>Flip two cards at a time to find six matching pairs. There’s no timer.</p>
     <div className="game-scoreboard"><span>PAIRS <strong>{game.matched.length}<small>/6</small></strong></span><span>MOVES <strong>{String(game.moves).padStart(2, "0")}</strong></span><span>YOUR BEST <strong>{best ?? "—"}</strong></span></div>
     <div className="memory-grid" aria-label="Signal Match cards">{game.deck.map((symbol, index) => {
       const matched = game.matched.includes(symbol);
@@ -40,7 +40,7 @@ function MemoryGame() {
 function LaunchGame() {
   const [choices, setChoices] = useState<number[]>([]);
   const content = useRef<HTMLDivElement>(null);
-  useEffect(() => { content.current?.closest(".screen-scroll")?.scrollTo({ top: 0, behavior: "instant" }); }, [choices.length]);
+  useEffect(() => { content.current?.scrollIntoView({ block: "start", behavior: "instant" }); }, [choices.length]);
   const [selected, setSelected] = useState<number | null>(null);
   const [shareStatus, setShareStatus] = useState("");
   const metrics = choices.reduce<Metrics>((current, choice, index) => applyDecision(current, launchRounds[index].options[choice]), { clarity: 35, trust: 35, momentum: 45 });
@@ -50,12 +50,12 @@ function LaunchGame() {
   const result = launchOutcome(metrics);
   async function share() {
     try {
-      await navigator.clipboard.writeText(`I played Launch Lab at Ujjwal’s desk: ${result.title} Clarity ${metrics.clarity}, trust ${metrics.trust}, momentum ${metrics.momentum}. Try it: https://ujjwalnepal.me/#arcade`);
+      await navigator.clipboard.writeText(`I played Launch Lab on Ujjwal’s site: ${result.title} Clarity ${metrics.clarity}, trust ${metrics.trust}, momentum ${metrics.momentum}. Try it: https://ujjwalnepal.me/#arcade`);
       setShareStatus("Result copied. Send it to someone you’d build with.");
     } catch { setShareStatus("Copy this link to invite a friend: https://ujjwalnepal.me/#arcade"); }
   }
   return <div className="launch-game" ref={content}>
-    <div className="game-heading"><div><span className="eyebrow">02 / A PRODUCT DECISION GAME</span><h3>Launch Lab</h3></div><button className="arcade-icon-button" aria-label="Restart Launch Lab" onClick={() => { setChoices([]); setSelected(null); setShareStatus(""); }}><RotateCcw size={17} /></button></div>
+    <div className="game-heading"><div><span className="eyebrow">Product decisions / 02</span><h1>Launch Lab</h1></div><button className="arcade-icon-button" aria-label="Restart Launch Lab" onClick={() => { setChoices([]); setSelected(null); setShareStatus(""); }}><RotateCcw size={17} /></button></div>
     <p>One idea. Four decisions. Keep a small product moving without losing sight of the people using it.</p>
     <div className="launch-meters">{(Object.keys(metricLabels) as Metric[]).map(key => <div key={key}><label htmlFor={`meter-${key}`}>{metricLabels[key]} <strong>{visibleMetrics[key]}</strong></label><meter id={`meter-${key}`} min={0} max={100} value={visibleMetrics[key]}>{visibleMetrics[key]} / 100</meter></div>)}</div>
     {round ? <>
@@ -64,19 +64,18 @@ function LaunchGame() {
       <div className="launch-options">{round.options.map((option, index) => <button key={option.title} className={selected === index ? "is-selected" : ""} disabled={selected !== null} onClick={() => setSelected(index)}><span className="option-letter">{String.fromCharCode(65 + index)}</span><span><strong>{option.title}</strong><small>{option.description}</small></span>{selected === index ? <Check size={17} /> : <ArrowRight size={17} />}</button>)}</div>
       {decision && <div className="decision-feedback" role="status"><Lightbulb size={18} /><div><p>{decision.lesson}</p><button className="arcade-primary" onClick={() => { setChoices(current => [...current, selected!]); setSelected(null); }}>{choices.length === 3 ? "See your launch" : "Next decision"}<ArrowRight size={15} /></button></div></div>}
     </> : <div className="launch-result" role="status"><span className="result-star" aria-hidden="true">✳</span><p className="eyebrow">YOUR FIRST CHAPTER IS SHIPPED</p><h4>{result.title}</h4><p>{result.description}</p><ol>{choices.map((choice, index) => <li key={index}>{launchRounds[index].options[choice].title}</li>)}</ol><button className="arcade-primary" onClick={() => void share()}><Copy size={15} /> Copy your result</button><p className="copy-status">{shareStatus}</p></div>}
-    <p className="arcade-footnote">A fictional sandbox for exploring tradeoffs. Real products are wonderfully less predictable.</p>
+    <p className="arcade-footnote">A fictional game about product tradeoffs. The scores are illustrative.</p>
   </div>;
 }
 
 export default function ArcadeContent() {
   const [game, setGame] = useState<"memory" | "launch" | null>(null);
   const content = useRef<HTMLDivElement>(null);
-  useEffect(() => { content.current?.closest(".screen-scroll")?.scrollTo({ top: 0, behavior: "instant" }); }, [game]);
+  useEffect(() => { if (game) content.current?.scrollIntoView({ block: "start", behavior: "instant" }); }, [game]);
   return <div ref={content} className="portfolio-content arcade-content">
     {game ? <><button className="text-action" onClick={() => setGame(null)}><ArrowLeft size={15} /> Back to the arcade</button>{game === "memory" ? <MemoryGame /> : <LaunchGame />}</> : <>
-      <p className="eyebrow">08 / SERIOUSLY, TAKE A PLAY BREAK</p><h2>Good work.<br /><em>A little play.</em></h2><p className="content-lead">Curiosity doesn’t clock out. Two tiny games, made for a few minutes between big ideas.</p>
-      <div className="arcade-cabinet" aria-hidden="true"><div className="arcade-marquee">UJJ / AFTER HOURS</div><div className="arcade-pixel-art"><span>✦</span><span>◇</span><span>☂</span><span>⌘</span><span>☕</span><span>☾</span></div><span className="insert-curiosity">INSERT CURIOSITY · NO COINS REQUIRED</span></div>
-      <div className="arcade-games"><button onClick={() => setGame("memory")}><span className="game-number">01</span><Gamepad2 size={23} /><h3>Signal Match</h3><p>Find six pairs in a desk full of little distractions.</p><span className="game-meta">MEMORY · 1–2 MIN · SOLO</span><strong>Make a connection <ArrowUpRightIcon /></strong></button><button onClick={() => setGame("launch")}><span className="game-number">02</span><Lightbulb size={23} /><h3>Launch Lab</h3><p>You’re in the product seat. What will you ship?</p><span className="game-meta">STRATEGY · 2 MIN · SOLO</span><strong>Make the call <ArrowUpRightIcon /></strong></button></div>
+      <p className="eyebrow">Just for fun</p><h1>Take a break.</h1><p className="content-lead">Two small games. Match six pairs, or make four decisions about a new product.</p>
+      <div className="arcade-games"><button onClick={() => setGame("memory")}><span className="game-number">01</span><Gamepad2 size={23} /><h3>Signal Match</h3><p>Flip the cards and find all six matching pairs.</p><span className="game-meta">MEMORY · 1–2 MIN · SOLO</span><strong>Make a connection <ArrowUpRightIcon /></strong></button><button onClick={() => setGame("launch")}><span className="game-number">02</span><Lightbulb size={23} /><h3>Launch Lab</h3><p>You’re in the product seat. What will you ship?</p><span className="game-meta">STRATEGY · 2 MIN · SOLO</span><strong>Make the call <ArrowUpRightIcon /></strong></button></div>
     </>}
   </div>;
 }
